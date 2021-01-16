@@ -3,17 +3,5 @@
 
 结合linux中的cron调度进程完成定时任务，可以在无需人工干预的情况下运行作业。
 
-文件目录结构如下：
-├── my_env 
-|   ├── bin &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; #包含python解释器、activate（激活虚拟环境命令）、pip命令（安装库）
-|   └── include
-|   └── lib  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; #python3.6/site-packages （已安装的库）
-|   └── lib64
-|   └── pyvenv.cfg
-|   └── share
-├── Version1.1
-|   ├── log.txt&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;#日志文件
-|   └── reminder1_1.py  &emsp;&emsp;&emsp; #python代码文件
-|   └── reminder_run.sh  &emsp;&emsp;&ensp; #运行脚本文件，与crontab定时任务关联
-
+30 9  * * 1-5 /home/×××/×××/version1.1/reminder_run.sh >>/home/×××/×××/version1.1/log.txt  #每周一到周五9:30执行reminder_run.sh脚本，输出文本到log.txt日志文件。
 
