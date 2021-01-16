@@ -111,7 +111,7 @@ def job(user_dict):
 
         issues = jac.query_issue_by_person(name)
 
-        if name == 'guxinglin':
+        if name == '×××':
             pending_issues = jac.query_issue_pending()
             issues = issues + pending_issues
 
@@ -170,8 +170,6 @@ if __name__ == '__main__':
     for user in user_list:
         user_dict[user] = user+'@×××.com'
 
-
-    # 人员、邮箱字典
     jac = Query_Jira()
     test = Send_Email()
     job(user_dict)
