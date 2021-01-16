@@ -77,19 +77,17 @@ class Query_Jira():
 class Send_Email():
     def __init__(self):
         # 初始化发件人邮箱密码
-        self.sender = 'snsdk-robot@notice.sensetime.com'   # 发件人邮箱账号
-        self.password ='c5kx5PK4z6'   # 发件人邮箱密码
-        self.smtp_server = 'notice.sensetime.com'  # 端口587，仅发送邮件。接收邮件需POP3协议，IT网页有对应服务器和端口。
+        self.sender = '×××-×××@×××.×××.com'   # 发件人邮箱账号
+        self.password ='×××'   # 发件人邮箱密码
+        self.smtp_server = '×××.×××.×××'  # 端口587，仅发送邮件。接收邮件需POP3协议，IT网页有对应服务器和端口。
 
     def mail(self,recevier_name,recevier_email,content):
         ret = True
         try:
-
             msg = MIMEText(content,'html','utf-8')
-
-            msg['From'] = formataddr(['SN-SDK机器人',self.sender])
+            msg['From'] = formataddr(['×××机器人',self.sender])
             msg['To'] = formataddr([recevier_name,recevier_email])
-            msg['Subject'] = 'SN-SDK_JIRA定时提醒邮件'
+            msg['Subject'] = '×××_JIRA定时提醒邮件'
 
             server = smtplib.SMTP(self.smtp_server,587)
             server.starttls()   # TLS协议
@@ -106,11 +104,9 @@ class Send_Email():
 
 # 定时器任务—— 查询JIRA，发送邮件
 def job(user_dict):
-
+    
     for name in user_dict:
-
         issues = jac.query_issue_by_person(name)
-
         if name == '×××':
             pending_issues = jac.query_issue_pending()
             issues = issues + pending_issues
@@ -164,7 +160,6 @@ def job(user_dict):
 if __name__ == '__main__':
 
     user_list = ['×××','×××','×××','×××','×××','×××','×××','×××','×××']
-
     user_dict = {}
 
     for user in user_list:
